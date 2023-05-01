@@ -1,15 +1,35 @@
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === "toggleSidebar") {
-      if (!document.getElementById("aiSidebar")) {
-        const iframe = document.createElement("iframe");
-        iframe.src = chrome.runtime.getURL("sidebar.html");
-        iframe.id = "aiSidebar";
-        iframe.style.cssText = "position:fixed;top:0;left:0;z-index:99999999;width:400px;height:100%;border:none;";
-        document.body.appendChild(iframe);
-      } else {
-        const iframe = document.getElementById("aiSidebar");
-        iframe.parentNode.removeChild(iframe);
-      }
+      toggleSidebar();
     }
   });
+  
+  function toggleSidebar() {
+    let sidebar = document.getElementById("aiChromeExtensionSidebar");
+  
+    if (sidebar) {
+      sidebar.remove();
+    } else {
+      createSidebar();
+    }
+  }
+  
+  function createSidebar() {
+    let sidebar = document.createElement("iframe");
+    sidebar.id = "aiChromeExtensionSidebar";
+    sidebar.src = chrome.runtime.getURL("sidebar.html");
+    sidebar.style.cssText = `
+      border: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 350px;
+      height: 100%;
+      z-index: 100000;
+      background-color: #f5f5f5;
+    `;
+  
+    document.body.appendChild(sidebar);
+  }
   

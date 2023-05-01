@@ -18,14 +18,7 @@
     "128": "icon128.png"
   },
   "web_accessible_resources": [
-    {
-      "resources": [
-        "sidebar.html"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
+    "sidebar.html"
   ],
   "content_scripts": [
     {

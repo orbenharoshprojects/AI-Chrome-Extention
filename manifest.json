@@ -1,19 +1,31 @@
 {
-  "manifest_version": 3,
-  "name": "AI Tools Sidebar",
-  "version": "1.0",
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
+    "manifest_version": 2,
+    "name": "AI Chrome Extension",
+    "version": "1.0",
+    "description": "An AI Chrome extension that enables cross-use of different AI sites within a sidebar.",
+    "browser_action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+    },
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "https://chat.openai.com/"
+    ],
+    "icons": {
       "16": "icon16.png",
       "48": "icon48.png",
       "128": "icon128.png"
-    }
-  },
-  "permissions": ["activeTab"],
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    },
+    "web_accessible_resources": [
+      "sidebar.html"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+      }
+    ]
   }
-}
+  

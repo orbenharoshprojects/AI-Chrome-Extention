@@ -1,9 +1,5 @@
-document.getElementById('openChatGPT').addEventListener('click', () => {
-    chrome.tabs.create({ url: 'https://chat.openai.com/' });
+document.getElementById("toggleSidebar").addEventListener("click", function () {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, { action: "toggleSidebar" });
   });
-  
-  document.getElementById('openDALLE').addEventListener('click', () => {
-    chrome.tabs.create({ url: 'https://labs.openai.com/' });
-  });
-  
-  // Add more event listeners for other AI tools
+});

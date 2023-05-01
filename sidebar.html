@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Add your custom CSS styles here */
+    </style>
+    <script>
+      function handleLinkClick(event) {
+        event.preventDefault();
+        const url = event.target.href;
+        document.getElementById("aiIframe").src = url;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="aiSidebar">
+      <ul>
+        <li><a href="https://chat.openai.com/" target="aiIframe" onclick="handleLinkClick(event)">Example 1</a></li>
+        <li><a href="https://chat.openai.com/" target="aiIframe" onclick="handleLinkClick(event)">Example 2</a></li>
+        <li><a href="https://chat.openai.com/" target="aiIframe" onclick="handleLinkClick(event)">Example 3</a></li>
+      </ul>
+      <iframe id="aiIframe" name="aiIframe" src="https://chat.openai.com/" style="width: 100%; height: calc(100% - 50px); border: none;"></iframe>
+    </div>
+  </body>
+</html>

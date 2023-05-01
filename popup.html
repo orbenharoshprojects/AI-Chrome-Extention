@@ -1,24 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>AI Sidebar</title>
     <style>
       body {
-        width: 200px;
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin: 0;
+        padding: 0;
         font-family: Arial, sans-serif;
       }
-      button {
-        padding: 10px 15px;
-        font-size: 14px;
+      .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        background-color: #f2f2f2;
+        border-left: 1px solid #ccc;
+        z-index: 9999;
+        overflow: auto;
+      }
+      .sidebar-header {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+      .sidebar-header h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .sidebar-content {
+        padding: 10px;
+      }
+      .sidebar-content iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+        font-size: 16px;
         cursor: pointer;
+        background-color: #f2f2f2;
+        border: none;
+        outline: none;
+      }
+      .close-btn:hover {
+        background-color: #ccc;
       }
     </style>
   </head>
   <body>
-    <button id="toggleSidebar">Toggle Sidebar</button>
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <button class="close-btn">Close</button>
+        <h3>AI Sidebar</h3>
+      </div>
+      <div class="sidebar-content">
+        <iframe src="https://chat.openai.com"></iframe>
+      </div>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>

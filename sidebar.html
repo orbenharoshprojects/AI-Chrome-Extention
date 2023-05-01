@@ -2,7 +2,32 @@
 <html>
   <head>
     <style>
-      /* Add your custom CSS styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        padding: 8px 16px;
+        border-bottom: 1px solid #ddd;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+      li a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+      }
+      li a:hover {
+        background-color: #f1f1f1;
+        color: #000;
+      }
     </style>
     <script>
       function handleLinkClick(event) {
@@ -15,11 +40,11 @@
   <body>
     <div id="aiSidebar">
       <ul>
-        <li><a href="https://chat.openai.com/" target="aiIframe" onclick="handleLinkClick(event)">Example 1</a></li>
-        <li><a href="https://chat.openai.com/" target="aiIframe" onclick="handleLinkClick(event)">Example 2</a></li>
-        <li><a href="https://chat.openai.com/" target="aiIframe" onclick="handleLinkClick(event)">Example 3</a></li>
+        <li><a href="https://beta.openai.com/playground/" target="aiIframe" onclick="handleLinkClick(event)">OpenAI Playground</a></li>
+        <li><a href="https://www.dellemc.com/en-us/ai" target="aiIframe" onclick="handleLinkClick(event)">Dell EMC AI</a></li>
+        <li><a href="https://runwayml.com/" target="aiIframe" onclick="handleLinkClick(event)">Runway ML</a></li>
       </ul>
-      <iframe id="aiIframe" name="aiIframe" src="https://chat.openai.com/" style="width: 100%; height: calc(100% - 50px); border: none;"></iframe>
+      <iframe id="aiIframe" name="aiIframe" src="https://beta.openai.com/playground/" style="width: 100%; height: calc(100% - 50px); border: none;"></iframe>
     </div>
   </body>
 </html>
